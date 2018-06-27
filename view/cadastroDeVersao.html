@@ -1,0 +1,101 @@
+<!-- DIV CENTRAL -->
+
+<div class="Central" ng-controller="releasesCtrl">
+
+    <div class="col-md-4">
+        <label for="software">Software:</label>
+        <select class="form-control" ng-model="dados.software" ng-options="software.nome for software in softwares" >
+            <option value="">Selecione</option>
+        </select>
+    </div>
+
+    <div class=" col-md-4">
+        <label for="versao">Versão:</label>
+        <input class="form-control" type="text" id="versao" ng-model="dados.versao">
+    </div>
+
+
+    <div class="col-md-4">
+        <label class="SeletorArquivos" for="arquivoSoftware">Carregar Versão</label>
+        <input type="file" id="arquivoSoftware" file-model="file">
+        <p class="nomeArquivo" ng-if="file">
+            {{file.name}}
+        </p>
+    </div>
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="ativo/inativo" ng-model="dados.ativo" checked> Ativo:
+        </label>
+
+        <label>
+            <input type="checkbox" ng-click="limparClientes()" name="paraTodos" ng-model="dados.paraTodos" checked> P/Todos:
+        </label>
+    </div>
+
+    <!-- DIV DAS TABELA -->
+
+    <div class="tabelas">
+
+        <!-- TABELA DE DEPENDENCIAS -->
+
+        <div class="tabelaDependencia" ng-class="{tabelaGrande: dados.paraTodos}">
+            <b>Dependencias</b>
+            <span ng-click="addFile()" class="glyphicon glyphicon-folder-open"></span>
+        </div>
+
+        <!-- TABELA DE CLIENTES -->
+
+        
+        <table class="table table-bordered tabelaClientes"  ng-hide="dados.paraTodos">
+            <tr>
+                <th>Razão Social</th>
+                <th>CNPJ</th>
+                <th class="btnAddCliente"><span data-toggle="modal" class="glyphicon glyphicon-zoom-in"  data-target=".bs-example-modal-lg" aria-hidden="true"></span></th>
+            </tr>
+
+            <tr ng-repeat="clienteAdicionado in clientesAdicionados">
+                <td>{{clienteAdicionado.rasaoSocial}}</td>
+                <td>{{clienteAdicionado.CNPJ}}</td>
+                <td class="btnRemoveCliente" ><span ng-click="removerCliente(clienteAdicionado)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+            </tr>
+            
+        </table>
+
+    </div>
+
+    <button class="Enviar btn btn-primary" ng-click="Enviar(dados)">Enviar</button>
+
+    <!-- MODAL -->
+    <div class="modal fade bs-example-modal-lg col-md-12" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+                <div class=" inputBusca col-md-5">
+                    <input class="form-control" type="text" id="buscarCliente" placeholder="Buscar Cliente" ng-model="criterioDeBusca">
+                </div>
+
+                <table class="tabelaModal table">
+                    <tr>
+                        <th></th>
+                        <th>Código</th>
+                        <th>Razão Social</th>
+                        <th>Nome Fantasia</th>
+                        <th>Cidade</th>
+                        <th>Escritório</th>
+                        <th>CNPJ</th>
+                    </tr>
+                    <tr ng-repeat="cliente in clientes | filter:criterioDeBusca" >   
+                        <td><input ng-click="selecionarCliente(cliente)" type="checkbox" ng-model="cliente.selecionado"></td>
+                        <td>{{cliente.codigo}}</td>
+                        <td>{{cliente.rasaoSocial}}</td>
+                        <td>{{cliente.nomeFantasia}}</td>
+                        <td>{{cliente.cidade}}</td>
+                        <td>{{cliente.escretorio}}</td>
+                        <td>{{cliente.CNPJ}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

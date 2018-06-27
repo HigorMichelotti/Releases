@@ -1,0 +1,51 @@
+<link rel="stylesheet" type="text/css" href="css/listagemDeVersao.css">
+
+<div class="Central" ng-controller="releasesCtrl">
+
+    <div class="col-md-5">
+        <label for="filtro">Filtro:</label>
+        <select class="form-control" ng-model="filtro.mes" ng-options="software.nome for software in softwares" >
+            <option value="">Selecione</option>
+        </select>
+    </div>
+
+    <button class="enviarListagem btn btn-primary" ng-click="Enviar(dados)">Enviar</button>
+
+    <!-- DIV DAS TABELA -->
+
+    <div class="tabelasListragem">
+
+        <!-- TABELA DE VERSÃO -->
+
+        <table class="table table-bordered"  ng-hide="dados.paraTodos">
+            <tr>
+                <th>Versão</th>
+                <th>P/Todos clientes</th>
+                <th>Ativo</th>
+                <th></th>
+            </tr>
+
+            <tr ng-repeat="clienteAdicionado in clientesAdicionados">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="btnRemoveCliente" ><span ng-click="removerCliente(clienteAdicionado)" class=" glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+            </tr>
+        </table>
+
+        <!-- TABELA DE DEPENDENCIAS -->
+
+        <table class="table table-bordered tabelaDendenciaListagem"  ng-hide="dados.paraTodos">
+            <tr>
+                <th>Dependencia</th>
+                <th>Versão</th>
+            </tr>
+
+            <tr ng-repeat="clienteAdicionado in clientesAdicionados">
+                <td></td>
+                <td></td>
+            </tr>
+            
+        </table>
+    </div>
+</div>

@@ -1,0 +1,135 @@
+ img{
+    width: 160px;
+    margin-left: 25px;
+}
+
+#arquivoSoftware{
+    height: 34px;
+    display: none;
+}
+
+.SeletorArquivos{
+    background-color: #3498db;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    padding: 6px 20px;
+    margin-top: 10%;
+
+}
+
+.tabelas{
+    display: flex;
+    flex-direction: row;
+}
+
+.tabelaClientes{
+    max-width: 400px !important;
+    margin-top: 65px !important;
+    margin-left: -16px !important;
+}
+
+.tabelaDependencia{
+    width: 400px !important;
+    margin-top: 35px !important;
+}
+
+.tabelaGrande{
+    width: 800px !important;
+    padding-left: 12% !important;
+}
+
+.checkbox{
+    margin-top: 8%;
+    margin-left: 35px;
+    width: 150px;
+}
+
+.Central{
+    padding: 35px;
+    border-radius: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgba(204, 204, 204, 0.233);
+}
+
+.Enviar{
+    margin-left: 90%;
+}
+
+.nomeArquivo{
+    color: #D97614;
+}
+
+input.fileDependencia{
+    /* display: none; */
+    width: 70%;
+    background-color: #3498db56;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.divInputFile{
+    display:flex;
+}
+
+.glyphicon{
+    cursor: pointer;
+    color: #3498db;
+}
+
+.nomeArquivoDependencias{
+    margin-top: -25px;
+    margin-left: 35px;
+}
+
+.tabelaModal{
+    margin-top: 90px;
+}
+
+.inputBusca{
+    margin-top: 30px;
+    margin-left: 260px;
+}
+
+.btnAddCliente{
+    text-align: center;
+    font-size: 18px;
+}
+
+.glyphicon-remove{
+    color: #D97614;
+}
+
+input#versaoDependencia{
+    border: none;
+    height: 30px;
+    margin-top: 11px;
+    margin-left: 5px;
+    background-color: rgba(204, 204, 204, 0);
+    width: 50px;
+    color:  rgb(112, 112, 112);
+
+    
+}
+
+.removeDependencia{
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.removeDependencia:hover{
+    color: rgb(189, 104, 19);
+}
+
+.btnRemoveCliente{
+    text-align: center;
+}
+
+
+.glyphicon-folder-open{
+    font-size: 20px;
+    margin-left: 20px;
+}

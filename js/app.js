@@ -1,0 +1,1 @@
+angular.module("releases", ['file-model','ngRoute']);
